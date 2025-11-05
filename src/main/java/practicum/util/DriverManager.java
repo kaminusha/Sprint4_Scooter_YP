@@ -38,32 +38,11 @@ public class DriverManager {
      * После закрытия устанавливает driver = null для предотвращения повторного использования.
      */
     public void teardown() {
-        // if (driver != null) {
-        // try {
-        driver.quit();
-        //  } catch (Exception e) {
-        // System.err.println("Ошибка при закрытии драйвера: " + e.getMessage());
-        // } finally {
-        //  driver = null;
-        //  }
-        //  } else {
-        //  System.out.println("Драйвер уже закрыт или не был инициализирован.");
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+            System.out.println("Драйвер закрыт (если был инициализирован).");
+        }
     }
 }
-/**
- * Альтернативный метод для мягкого закрытия драйвера (без quit).
- * Использует close() для закрытия текущего окна, но оставляет драйвер активным.
- * Может быть полезен в сценариях, где требуется сохранить сеанс.
- */
-// public void close() {
-// if (driver != null) {
-//  try {
-//driver.close();
-// } catch (Exception e) {
-// System.err.println("Ошибка при закрытии окна драйвера: " + e.getMessage());}
-// } else {
-// System.out.println("Драйвер не инициализирован, close() не требуется.");
-// }
-//  }
-// }
 
