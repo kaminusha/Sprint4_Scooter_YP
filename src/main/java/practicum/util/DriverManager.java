@@ -32,17 +32,8 @@ public class DriverManager {
         return driver;
     }
 
-    /**
-     * Корректно закрывает драйвер и освобождает ресурсы.
-     * Проверяет, что драйвер не равен null, и вызывает quit().
-     * После закрытия устанавливает driver = null для предотвращения повторного использования.
-     */
     public void teardown() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-            System.out.println("Драйвер закрыт (если был инициализирован).");
+            driver.quit(); // закрываем браузер
         }
     }
-}
 
